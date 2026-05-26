@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Pakal — Soluciones tecnológicas a medida: desarrollo web, nube AWS, integraciones y soporte continuo."
+    />
+    <title>Pakal — Soluciones Tecnológicas Globales</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      Script anti-flash (FOUC): aplica el tema guardado ANTES de pintar,
+      evitando el parpadeo claro->oscuro al recargar. Es la única lógica de
+      tema fuera de React por necesidad (debe correr antes del bundle).
+    -->
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem('pakal-theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+          var lang = localStorage.getItem('pakal-lang');
+          if (lang) document.documentElement.setAttribute('lang', lang);
+        } catch (e) {
+          /* almacenamiento no disponible: usamos los valores por defecto */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
