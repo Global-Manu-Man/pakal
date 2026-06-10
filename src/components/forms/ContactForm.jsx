@@ -53,13 +53,13 @@ export default function ContactForm() {
       />
       <Field
         name="company"
-        label={t.contact.labelCompany || 'Company'}
-        placeholder={t.contact.phCompany || 'Your company name'}
+        label={t.contact.labelCompany || 'Compañia'}
+        placeholder={t.contact.phCompany || ' Nombre de la compañia'}
         type="text"
       />
       <Field
         name="phone"
-        label={t.contact.labelPhone || 'Phone'}
+        label={t.contact.labelPhone || 'Telefono'}
         placeholder={t.contact.phPhone || '+1 (555) 000-0000'}
         type="tel"
       />
@@ -73,8 +73,8 @@ export default function ContactForm() {
       <ValidationError prefix="Email" field="email" errors={state.errors} />
       <Field
         name="subject"
-        label={t.contact.labelSubject || 'Subject'}
-        placeholder={t.contact.phSubject || 'What is this about?'}
+        label={t.contact.labelSubject || 'Asunto'}
+        placeholder={t.contact.phSubject || '¿Cual es tu asunto?'}
         type="text"
         full
       />
