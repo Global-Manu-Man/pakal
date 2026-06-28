@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Logo from '../ui/Logo';
 import Icon from '../ui/Icon';
 import { useLanguage } from '../../context/LanguageContext';
@@ -71,11 +72,17 @@ export default function Footer() {
         <div className="flex items-center justify-between pt-7 text-[13px] text-white/50 max-[600px]:flex-col max-[600px]:gap-3.5 max-[600px]:text-center">
           <div>{t.footer.rights}</div>
           <div className="flex gap-6">
-            {t.footer.legal.map((label) => (
-              <a key={label} href="#" className="transition-colors hover:text-teal">
-                {label}
-              </a>
-            ))}
+            {t.footer.legal.map((label, i) =>
+              i === 0 ? (
+                <Link key={label} to="/privacidad" className="transition-colors hover:text-teal">
+                  {label}
+                </Link>
+              ) : (
+                <a key={label} href="#" className="transition-colors hover:text-teal">
+                  {label}
+                </a>
+              ),
+            )}
           </div>
         </div>
       </div>

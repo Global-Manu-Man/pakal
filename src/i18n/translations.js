@@ -207,7 +207,8 @@ export const translations = {
       phLast: 'Tu apellido',
       phEmail: 'tu@empresa.com',
       phMessage: 'Cuéntanos sobre tu proyecto — objetivos, plazos, lo que sea útil.',
-      disclaimer: 'Al enviar, aceptas nuestra política de privacidad.',
+      checkboxPrivacyPre: 'Acepto la',
+      checkboxPrivacyLink: 'política de privacidad',
       submit: 'Solicitar cotización',
       sent: 'Enviado ✓',
       errRequired: 'Este campo es obligatorio.',
@@ -241,6 +242,44 @@ export const translations = {
       title: 'Página no encontrada',
       desc: 'La página que buscas no existe o fue movida.',
       cta: 'Volver al inicio',
+    },
+    privacy: {
+      title: 'Política de Privacidad',
+      updated: 'Última actualización: 28 de junio de 2026',
+      sections: [
+        {
+          title: '¿Quiénes somos?',
+          body: 'Pakal (pakal.cloud) es una empresa de soluciones tecnológicas que ofrece desarrollo web a medida, servicios en la nube e integraciones para negocios de cualquier tamaño.',
+        },
+        {
+          title: 'Datos que recopilamos',
+          body: 'Recopilamos únicamente los datos que tú nos proporcionas a través del formulario de contacto: nombre, apellido, correo electrónico, número de teléfono, empresa y el contenido de tu mensaje. No recopilamos datos de navegación ni usamos cookies de rastreo.',
+        },
+        {
+          title: 'Cómo usamos tus datos',
+          body: 'Los datos recibidos se utilizan exclusivamente para responder a tu consulta o solicitud de cotización. No vendemos, compartimos ni cedemos tu información a terceros con fines comerciales.',
+        },
+        {
+          title: 'Cookies',
+          body: 'Este sitio no utiliza cookies de rastreo ni publicitarias. Solo pueden emplearse cookies técnicas esenciales para el funcionamiento de la página.',
+        },
+        {
+          title: 'Servicios de terceros',
+          body: 'El formulario de contacto utiliza Formspree (formspree.io) para el envío y gestión de mensajes. Formspree puede procesar temporalmente tu información de acuerdo con sus propios términos de servicio.',
+        },
+        {
+          title: 'Tus derechos',
+          body: 'Tienes derecho a acceder, rectificar o eliminar los datos que nos hayas proporcionado. Para ejercer cualquiera de estos derechos, escríbenos a hola@pakal.cloud.',
+        },
+        {
+          title: 'Cambios a esta política',
+          body: 'Nos reservamos el derecho de actualizar esta política en cualquier momento. La fecha de última actualización se indica al inicio de esta página.',
+        },
+        {
+          title: 'Contacto',
+          body: 'Si tienes dudas sobre esta política de privacidad, escríbenos a hola@pakal.cloud.',
+        },
+      ],
     },
   },
 
@@ -445,7 +484,8 @@ export const translations = {
       phLast: 'Your last name',
       phEmail: 'you@company.com',
       phMessage: 'Tell us about your project — goals, timeline, anything useful.',
-      disclaimer: 'By submitting, you agree to our privacy policy.',
+      checkboxPrivacyPre: 'I agree to the',
+      checkboxPrivacyLink: 'privacy policy',
       submit: 'Request a quote',
       sent: 'Sent ✓',
       errRequired: 'This field is required.',
@@ -479,6 +519,44 @@ export const translations = {
       title: 'Page not found',
       desc: 'The page you are looking for does not exist or was moved.',
       cta: 'Back to home',
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      updated: 'Last updated: June 28, 2026',
+      sections: [
+        {
+          title: 'Who we are',
+          body: 'Pakal (pakal.cloud) is a technology solutions company offering custom web development, cloud services and integrations for businesses of all sizes.',
+        },
+        {
+          title: 'Data we collect',
+          body: 'We only collect data you provide through the contact form: first name, last name, email address, phone number, company name and your message. We do not collect browsing data or use tracking cookies.',
+        },
+        {
+          title: 'How we use your data',
+          body: 'Information received is used solely to respond to your inquiry or quote request. We do not sell, share or transfer your data to third parties for commercial purposes.',
+        },
+        {
+          title: 'Cookies',
+          body: 'This website does not use tracking or advertising cookies. Only essential technical cookies necessary for the site to function may be used.',
+        },
+        {
+          title: 'Third-party services',
+          body: 'The contact form uses Formspree (formspree.io) for message delivery and management. Formspree may temporarily process your information in accordance with their own terms of service.',
+        },
+        {
+          title: 'Your rights',
+          body: 'You have the right to access, correct or delete any data you have provided to us. To exercise any of these rights, contact us at hello@pakal.cloud.',
+        },
+        {
+          title: 'Changes to this policy',
+          body: 'We reserve the right to update this policy at any time. The date of the most recent update is indicated at the top of this page.',
+        },
+        {
+          title: 'Contact',
+          body: 'If you have questions about this privacy policy, reach us at hello@pakal.cloud.',
+        },
+      ],
     },
   },
 };

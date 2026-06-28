@@ -53,11 +53,13 @@ export default function Portfolio() {
         </div>
 
         {/* Rejilla de proyectos */}
-        <div className="grid grid-cols-[1.1fr_1fr_1fr] gap-4 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+        <div className="grid grid-cols-[1.3fr_1fr] gap-4 max-[900px]:grid-cols-1">
           {portfolioMeta.map((meta, i) => (
             <WorkCard
               key={i}
               variant={meta.variant}
+              images={meta.images}
+              featured={i === 0}
               tag={t.portfolio.items[i].tag}
               title={t.portfolio.items[i].title}
               sub={t.portfolio.items[i].sub}
@@ -91,8 +93,8 @@ function BadgeCard({ t1, s1, t2, s2 }) {
   );
 }
 
-/** Tarjeta de proyecto con su mockup decorativo. */
-function WorkCard({ variant, tag, title, sub }) {
+/** Tarjeta de proyecto con su mockup decorativo o imágenes reales. */
+function WorkCard({ variant, images, featured, tag, title, sub }) {
   const VISUALS = {
     mobile: <MobileVisual />,
     logo: <LogoVisual />,
@@ -100,8 +102,14 @@ function WorkCard({ variant, tag, title, sub }) {
   };
 
   return (
-    <article className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-brand transition-transform duration-300 hover:-translate-y-1">
-      {VISUALS[variant]}
+    <article
+      className={`group relative cursor-pointer overflow-hidden rounded-brand transition-transform duration-300 hover:-translate-y-1 ${
+        featured
+          ? 'row-span-2 min-h-[560px] max-[900px]:row-span-1 max-[900px]:aspect-[4/5] max-[900px]:min-h-0'
+          : 'aspect-[4/5]'
+      }`}
+    >
+      {images?.length ? <ImageVisual images={images} /> : VISUALS[variant]}
 
       <span className="absolute left-[18px] top-[18px] z-[2] rounded-pill bg-surface/90 px-3.5 py-[7px] text-xs font-medium backdrop-blur-[8px]">
         {tag}
@@ -120,7 +128,27 @@ function WorkCard({ variant, tag, title, sub }) {
   );
 }
 
-/* ---- Visuales decorativos (aria-hidden por ser puramente estéticos) ---- */
+/* ---- Visuales ---- */
+
+function ImageVisual({ images }) {
+  const [main, secondary] = images;
+  return (
+    <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-[#0f1113]">
+      <img
+        src={main}
+        alt=""
+        loading="lazy"
+        className="h-full w-full object-cover object-center"
+      />
+      {secondary && (
+        <div className="absolute bottom-[72px] right-4 z-[1] w-[44%] overflow-hidden rounded-xl shadow-[0_16px_40px_-8px_rgba(0,0,0,0.6)] ring-1 ring-white/10 transition-transform duration-500 group-hover:-translate-y-2">
+          <img src={secondary} alt="" loading="lazy" className="h-full w-full object-contain" />
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
+    </div>
+  );
+}
 
 function MobileVisual() {
   return (

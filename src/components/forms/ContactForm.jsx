@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import Button from '../ui/Button';
 import { useLanguage } from '../../context/LanguageContext';
@@ -21,6 +22,7 @@ const FORMSPREE_FORM_ID = 'mwkawqzq';
 export default function ContactForm() {
   const { t } = useLanguage();
   const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   // Pantalla de éxito después del envío
   if (state.succeeded) {
@@ -87,13 +89,32 @@ export default function ContactForm() {
       />
       <ValidationError prefix="Message" field="message" errors={state.errors} />
 
-      <div className="col-span-2 mt-2 flex items-center justify-between max-[600px]:flex-col max-[600px]:items-stretch max-[600px]:gap-3">
-        <small className="text-xs text-ink/60">{t.contact.disclaimer}</small>
-        <Button 
-          type="submit" 
-          variant="primary" 
-          withArrow 
-          disabled={state.submitting}
+      <div className="col-span-2 mt-2 flex items-center justify-between gap-4 max-[600px]:flex-col max-[600px]:items-stretch max-[600px]:gap-3">
+        <label className="flex cursor-pointer items-center gap-2 text-xs text-ink/60">
+          <input
+            type="checkbox"
+            checked={privacyAccepted}
+            onChange={e => setPrivacyAccepted(e.target.checked)}
+            className="h-4 w-4 cursor-pointer accent-teal"
+          />
+          <span>
+            {t.contact.checkboxPrivacyPre}{' '}
+            <a
+              href="/privacidad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline transition-colors hover:text-teal"
+              onClick={e => e.stopPropagation()}
+            >
+              {t.contact.checkboxPrivacyLink}
+            </a>
+          </span>
+        </label>
+        <Button
+          type="submit"
+          variant="primary"
+          withArrow
+          disabled={state.submitting || !privacyAccepted}
           className="max-[600px]:w-full max-[600px]:justify-center"
         >
           {state.submitting ? t.contact.sending || 'Sending...' : t.contact.submit}

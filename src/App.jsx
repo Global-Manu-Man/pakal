@@ -16,6 +16,7 @@ import { LanguageProvider } from './context/LanguageContext';
  */
 const Home = lazy(() => import('./pages/Home'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 
 /** Fallback a pantalla completa mientras carga la vista inicial. */
 function RouteFallback() {
@@ -35,6 +36,7 @@ export default function App() {
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/privacidad" element={<PrivacyPolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
